@@ -6,23 +6,25 @@
 /*   By: gdumais- <gdumais-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 13:03:23 by gdumais-          #+#    #+#             */
-/*   Updated: 2024/02/13 17:30:24 by gdumais-         ###   ########.fr       */
+/*   Updated: 2024/02/19 13:01:30 by gdumais-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *restrict dst, const char *restrict src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 
 	i = 0;
 	if (src != NULL)
 	{
-		if (sizeof(dst) > dstsize)
+		while (src[i] && i < (dstsize - 1))
 		{
-			if (dstsize > 0)
+			dst[i] = src[i];
+			i++;
 		}
-		
+		dst[i] = '\0';
 	}
+	return (ft_strlen(src));
 }

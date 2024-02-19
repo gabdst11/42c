@@ -6,7 +6,15 @@
 /*   By: gdumais- <gdumais-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 13:02:38 by gdumais-          #+#    #+#             */
-/*   Updated: 2024/02/12 13:02:39 by gdumais-         ###   ########.fr       */
+/*   Updated: 2024/02/18 10:41:47 by gdumais-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+int	ft_isprint(int c)
+{
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
+}

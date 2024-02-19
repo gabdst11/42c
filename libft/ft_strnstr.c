@@ -6,13 +6,11 @@
 /*   By: gdumais- <gdumais-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 13:03:30 by gdumais-          #+#    #+#             */
-/*   Updated: 2024/02/13 14:29:48 by gdumais-         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:54:30 by gdumais-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
-#include <xlocale.h>
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
@@ -20,7 +18,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	b;
 
 	a = 0;
-	if (!needle)
+	if (!needle || !haystack)
 		return (NULL);
 	while (haystack[a] && a < len)
 	{
@@ -32,9 +30,27 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		}
 		if (!needle[b])
 			return ((char *)&haystack[(a - b)]);
-		printf("avant le a++%zu\n", a);
 		a = (a - b) + 1;
-		printf("apres le a++%zu\n", a);
 	}
 	return (NULL);
 }
+
+// int main(void)
+// {
+//     const char *haystack = "allo";
+//     const char *needle = "lo";
+//     size_t len = 70;
+
+//     char *result = ft_strnstr(haystack, needle, len);
+
+//     if (result)
+//     {
+//         printf("Needle found at index: %ld\n", result - haystack);
+//     }
+//     else
+//     {
+//         printf("Needle not found.\n");
+//     }
+
+//     return 0;
+// }
