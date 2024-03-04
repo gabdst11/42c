@@ -6,7 +6,15 @@
 /*   By: gdumais- <gdumais-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 13:03:39 by gdumais-          #+#    #+#             */
-/*   Updated: 2024/02/12 13:03:40 by gdumais-         ###   ########.fr       */
+/*   Updated: 2024/02/21 11:50:09 by gdumais-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+int	ft_toupper(int c)
+{
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return (c);
+}

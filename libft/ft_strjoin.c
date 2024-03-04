@@ -1,38 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdumais- <gdumais-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/12 13:03:09 by gdumais-          #+#    #+#             */
-/*   Updated: 2024/02/26 17:49:42 by gdumais-         ###   ########.fr       */
+/*   Created: 2024/02/26 17:23:53 by gdumais-          #+#    #+#             */
+/*   Updated: 2024/02/26 18:35:07 by gdumais-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
+	char	*str;
+	int		size;
+	int		i;
+	int		j;
 
 	i = 0;
-	if (!dst)
+	j = 0;
+	size = ft_strlen(s1) + ft_strlen(s2);
+	str = (char *)malloc(size + 1);
+	if (!str)
 		return (NULL);
-	if (!src)
-		return (dst);
-	while (i < n)
+	while (s1[i])
 	{
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+		str[i] = s1[i];
 		i++;
 	}
-	return (dst);
+	while (s2[j])
+	{
+		str[i + j] = s2[j];
+		j++;
+	}
+	str[i + j] = '\0';
+	return (str);
 }
 
 // int main()
 // {
-// 	char a[] = "al";
-// 	char b[30];
-// 	ft_memcpy(b, a, 0);
-// 	printf("%s", b);
+// 	char const a[] = "allo ";
+// 	char const b[] = "monde";
+// 	char *c = ft_strjoin(a, b);
+// 	printf("%s", c);
+// 	free (c);
 // }

@@ -6,7 +6,7 @@
 /*   By: gdumais- <gdumais-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 13:02:45 by gdumais-          #+#    #+#             */
-/*   Updated: 2024/02/13 15:53:33 by gdumais-         ###   ########.fr       */
+/*   Updated: 2024/02/22 10:12:05 by gdumais-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_atoi(const char *str)
 	i = 0;
 	sym = 1;
 	nb = 0;
-	while ((str[i] <= '\t' && str[i] >= '\r') || str[i] == ' ')
+	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
