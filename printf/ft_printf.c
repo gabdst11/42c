@@ -6,7 +6,7 @@
 /*   By: gdumais- <gdumais-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 12:30:52 by gdumais-          #+#    #+#             */
-/*   Updated: 2024/03/07 15:40:02 by gdumais-         ###   ########.fr       */
+/*   Updated: 2024/03/11 17:28:00 by gdumais-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ static void	format(va_list args, const char format, int *count)
 		uputnbr(va_arg(args, unsigned int), count);
 	else if (format == '%')
 		ft_putchar('%', count);
-	// else if (format == 'x' || format == 'X')
-	// 	putnbr_hex(va_arg(args, int), count);
+	else if (format == 'x' || format == 'X')
+		putnbr_hex(va_arg(args, int unsigned), count, format);
+	else if (format == 'p')
+		ft_putptr(va_arg(args, void *), count, format);
 }
 
 int	ft_printf(const char *str, ...)
@@ -52,6 +54,6 @@ int	ft_printf(const char *str, ...)
 
 // int main(void)
 // {
-// 	printf("\n%d\n", printf("allo%%yo"));
-// 	printf("\n%d\n", ft_printf("allo%%yo"));
+// 	printf("\n%d\n", printf("allo%pyo", "allo"));
+// 	printf("\n%d\n", ft_printf("allo%pyo", "llo"));
 // }

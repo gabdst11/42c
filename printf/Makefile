@@ -6,7 +6,7 @@
 #    By: gdumais- <gdumais-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/05 13:24:15 by gdumais-          #+#    #+#              #
-#    Updated: 2024/03/07 15:18:27 by gdumais-         ###   ########.fr        #
+#    Updated: 2024/03/11 17:24:06 by gdumais-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC				= gcc
 RM				= rm -f
 CFLAGS			= -c -Wall -Wextra -Werror -I.
 LIBFT			= ./libft/libft.a
-SRCS			=	ft_printf.c uputnbr.c
+SRCS			=	ft_printf.c uputnbr.c putnbr_hex.c ft_putptr.c
 OBJS		= $(SRCS:.c=.o)
 					
 					

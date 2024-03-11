@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdumais- <gdumais-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 12:34:19 by gdumais-          #+#    #+#             */
-/*   Updated: 2024/03/11 17:27:52 by gdumais-         ###   ########.fr       */
+/*   Created: 2024/03/11 16:55:45 by gdumais-          #+#    #+#             */
+/*   Updated: 2024/03/11 17:18:22 by gdumais-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <stdarg.h>
-# include "libft/libft.h"
-
-void	uputnbr(unsigned int n, int *count);
-void	putnbr_hex(int unsigned n, int *count, char format);
-void	ft_putptr(void *ptr, int *count, char format);
-int		ft_printf(const char *str, ...);
-#endif
+void	ft_putptr(void *ptr, int *count, char format)
+{
+	ft_putstr("0x", count);
+	putnbr_hex((unsigned long) ptr, count, format);
+}
