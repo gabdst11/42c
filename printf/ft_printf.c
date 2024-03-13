@@ -6,7 +6,7 @@
 /*   By: gdumais- <gdumais-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 12:30:52 by gdumais-          #+#    #+#             */
-/*   Updated: 2024/03/11 17:28:00 by gdumais-         ###   ########.fr       */
+/*   Updated: 2024/03/13 12:26:23 by gdumais-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	format(va_list args, const char format, int *count)
 	else if (format == 'x' || format == 'X')
 		putnbr_hex(va_arg(args, int unsigned), count, format);
 	else if (format == 'p')
-		ft_putptr(va_arg(args, void *), count, format);
+		ft_putptr(va_arg(args, void *), count);
 }
 
 int	ft_printf(const char *str, ...)
