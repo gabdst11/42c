@@ -6,14 +6,14 @@
 #    By: gdumais- <gdumais-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/20 10:48:08 by gperreau          #+#    #+#              #
-#    Updated: 2024/04/30 15:55:01 by gdumais-         ###   ########.fr        #
+#    Updated: 2024/05/27 11:38:03 by gdumais-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= libft.a
 CC				= gcc
 RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror -I.
+CFLAGS			= -Wall -Wextra -Werror -I. -g
 SRCS			=	ft_isalnum.c ft_isprint.c ft_memcmp.c  ft_putchar_fd.c ft_split.c \
 					ft_strlcat.c ft_strncmp.c ft_substr.c ft_atoi.c ft_isalpha.c \
 					ft_itoa.c ft_memcpy.c  ft_putendl_fd.c ft_strchr.c  ft_strlcpy.c \

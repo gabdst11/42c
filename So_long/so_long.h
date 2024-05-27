@@ -6,7 +6,7 @@
 /*   By: gdumais- <gdumais-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 13:38:55 by gdumais-          #+#    #+#             */
-/*   Updated: 2024/05/08 16:34:38 by gdumais-         ###   ########.fr       */
+/*   Updated: 2024/05/27 12:12:26 by gdumais-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,24 @@
 # include <stdio.h>
 # include "libft/libft.h"
 
-typedef struct game
+typedef struct s_content
 {
-	int		i;
-	char	*a;
-}	t_game;
+	int		c;
+	int		e;
+	int		p;
+	int		x;
+	int		y;
+}	t_content;
+
+typedef struct s_dimension
+{
+	int		lenght;
+	int		height;
+}	t_dimension;
 
 char	**mapread(char *map);
-int		mapheigh(char **map);
-int		maplenght(char **map);
-void	mapwall(char **map);
+void	mapcheck(char **map);
+void	game_is_winnable(char **map);
+void	other_content(char **map);
 
 #endif

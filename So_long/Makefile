@@ -6,17 +6,17 @@
 #    By: gdumais- <gdumais-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/22 12:29:40 by gdumais-          #+#    #+#              #
-#    Updated: 2024/05/01 20:09:42 by gdumais-         ###   ########.fr        #
+#    Updated: 2024/05/27 11:37:42 by gdumais-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= so_long
 CC					= gcc
 RM					= rm -f
-CFLAGS			= -Wall -Wextra -Werror 
+CFLAGS			= -Wall -Wextra -Werror -g
 LIBFT			= ./libft/libft.a
 INC			=	-I ./inc -I ./libft
-SRCS			= mapread.c main.c checkmap.c
+SRCS			= mapread.c main.c checkmap.c check_path.c
 OBJS		= $(SRCS:.c=.o)
 
 

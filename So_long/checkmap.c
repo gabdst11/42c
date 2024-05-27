@@ -6,53 +6,51 @@
 /*   By: gdumais- <gdumais-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 19:45:21 by gdumais-          #+#    #+#             */
-/*   Updated: 2024/05/17 16:09:46 by gdumais-         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:43:13 by gdumais-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	mapheigh(char **map)
+static int	mapheigh(char **map, t_dimension *d)
 {
 	int	x;
-	int	y;
 
 	x = 0;
-	y = 0;
-	while (map[y] != NULL)
+	d->height = 0;
+	while (map[d->height] != NULL)
 	{
 		x = 0;
-		while (map[x] != NULL)
+		while (map[d->height][x])
 		{
 			x++;
 		}
 		if (map[x] == NULL)
-			y++;
+			d->height++;
 	}
-	return (y);
+	return (d->height);
 }
 
-static int	maplenght(char **map)
+static int	maplenght(char **map, t_dimension *d)
 {
 	int		y;
-	int		first_line;
 	int		other_line;
 
-	y = 1;
-	first_line = 0;
-	first_line = ft_strlen(map[0]);
+	y = 0;
+	d ->lenght = 0;
+	d ->lenght = ft_strlen(map[0]);
 	while (map[y] != NULL)
 	{
 		other_line = ft_strlen(map[y]);
-		if (first_line != other_line)
+		if (d ->lenght != other_line)
 		{
 			printf("map is not rectagle\n");
 			exit(1);
 		}
 		y++;
 	}
-	if (first_line != 0)
-		return (first_line);
+	if (d ->lenght != 0)
+		return (d ->lenght);
 	else
 	{
 		printf("map is not rectagle\n");
@@ -86,24 +84,24 @@ static int	mapwall(char **map, int mapheigh, int maplenght)
 	return (0);
 }
 
-static int	checkcontent(char **map, t_content *s)
+static int	checkcontent(char **map, t_content *o)
 {
-	while (map[s->y] != NULL)
+	while (map[o->y] != NULL)
 	{
-		s->x = 0;
-		while (map[s->y][s->x])
+		o->x = 0;
+		while (map[o->y][o->x])
 		{
-			if (map[s->y][s->x] == 'C')
-				s->c++;
-			if (map[s->y][s->x] == 'E')
-				s->e++;
-			if (map[s->y][s->x] == 'P')
-				s->p++;
-			s->x++;
+			if (map[o->y][o->x] == 'C')
+				o->c++;
+			if (map[o->y][o->x] == 'E')
+				o->e++;
+			if (map[o->y][o->x] == 'P')
+				o->p++;
+			o->x++;
 		}
-		s->y++;
+		o->y++;
 	}
-	if (s->c < 1 || s->e != 1 || s->p != 1)
+	if (o->c < 1 || o->e != 1 || o->p != 1)
 		return (1);
 	return (0);
 }
@@ -112,11 +110,13 @@ void	mapcheck(char **map)
 {
 	int			height;
 	int			lenght;
-	t_content	s;
+	t_content	o;
+	t_dimension	d;
 
-	ft_bzero(&s, sizeof(t_content));
-	height = mapheigh(map);
-	lenght = maplenght(map);
+	ft_bzero(&d, sizeof(t_dimension));
+	ft_bzero(&o, sizeof(t_content));
+	height = mapheigh(map, &d);
+	lenght = maplenght(map, &d);
 	if (mapwall(map, height, lenght) == 1)
 	{
 		printf("map wall error vertical\n");
@@ -127,7 +127,7 @@ void	mapcheck(char **map)
 		printf("map wall error horizontal\n");
 		exit(1);
 	}
-	if (checkcontent(map, &s) == 1)
+	if (checkcontent(map, &o) == 1)
 	{
 		printf("map wall error content\n");
 		exit(1);
